@@ -1,0 +1,32 @@
+---
+title: Oceans and Climate
+image: "images/robert-c-seamans-edit.jpg"
+# description
+layout: "about"
+draft: false
+---
+
+```{r setup, echo = F, warning = F, message=F}
+library(tidyverse)
+library(seawc2hawaii)
+library(leaflet)
+```
+
+
+Welcome to our Science Logbook from the Sea Education Association Cruise S301 from San Diego to Hawaii. Sailing aboard the 135 ft Sailing School Vessel *Robert C. Seamans* are twenty undergraduates and a professional crew of 15. Our goal is to traverse these seldom visited waters and explore a changing ocean in all it's guises.
+
+In these pages, students will transport you to the ship and to the ocean beneath the hull to examine the important processes vital to the health of the planet and how, like on land, the ocean and it's inhabitants are feeling the stress of a changing climate.
+
+## Cruise Track
+
+Below are three previous cruise tracks from San Diego to Hawaii. They are from between 2009 and 2011 so it's been a decade since SEA last made this trip. 
+
+```{r, echo = F, out.width='100%'}
+leaflet() %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  addPolylines(data = S225$hourly, lng = ~lon, lat = ~lat, color = "#66c2a5" , opacity = 1) %>%
+  addPolylines(data = S231$hourly, lng = ~lon, lat = ~lat, color = "#fc8d62", opacity = 1) %>%
+  addPolylines(data = S237$hourly, lng = ~lon, lat = ~lat, color = "#8da0cb", opacity = 1)
+```
+
+
